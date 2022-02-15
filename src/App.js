@@ -16,7 +16,7 @@ class App extends Component {
                 <div className="app-container">
                     <Header
                         YearMonth={this.state.YearMonth.format('MMMM YYYY')}
-                        today={this.state.today.format('현재 YYYY - MM - DD')}
+                        today={this.state.today.format('YYYY - MM - DD')}
                     />
                     <Calendar />
                 </div>
