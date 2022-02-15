@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { CalendarContainer } from 'react-datepicker';
 
 class Header extends Component {
     render() {
+        console.log(this.props);
         return <div className="header-container"></div>;
     }
 }
