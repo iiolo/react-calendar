@@ -19,6 +19,7 @@ class App extends Component {
     render() {
         return (
             <div className="layout">
+                <div className="todo-container"></div>
                 <div className="app-container">
                     <Header
                         YearMonth={this.state.YearMonth.format('MMMM YYYY')}
