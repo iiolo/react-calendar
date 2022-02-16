@@ -35,8 +35,8 @@
     width: 14.2857143%;
     text-align: center;
     box-sizing: border-box;
-    background-color: rgb(107, 107, 108);
-    border: 0.1px solid white;
+    background-color: white;
+    border: 0.1px solid #333333;
     font-size: 1.5rem;
     line-height: 25px;
 }
@@ -47,7 +47,7 @@
 }
 
 .date-weekday {
-    color: rgba(255, 255, 255, 0.603);
+    color: black;
 }
 
 .date-sun {
@@ -58,6 +58,52 @@
     color: skyblue;
 }
 
+/* calendar date */
+.calendar-day-container {
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.calendar-day {
+    box-sizing: border-box;
+    position: relative;
+    flex-basis: 14.2857143%;
+    border: 0.1px solid #333333;
+    border-top: none;
+    background-color: rgb(225, 224, 224);
+}
+
+.calendar-week {
+    display: flex;
+    flex-grow: 1;
+}
+
+.calendar-day:nth-child(odd) {
+    border-left: none;
+    border-right: none;
+}
+
+.calendar-day-label {
+    display: inline-block;
+    height: 110px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    padding-top: 2px;
+    padding-left: 125px;
+    line-height: 25px;
+    top: 5px;
+    right: 5px;
+}
+
+.date-weekday-label {
+    color: rgb(71, 71, 71);
+}
+
+.date-notThisMonth {
+    color: white;
+}
 /* header */
 .header-container {
     flex-basis: 50px;
