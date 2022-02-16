@@ -10,6 +10,12 @@ class App extends Component {
         today: moment(),
     };
 
+    nextMonth = (month) => {
+        this.setState({
+            YearMonth: this.state.YearMonth.add(month, 'M'),
+        });
+    };
+
     render() {
         return (
             <div className="layout">
@@ -17,6 +23,7 @@ class App extends Component {
                     <Header
                         YearMonth={this.state.YearMonth.format('MMMM YYYY')}
                         today={this.state.today.format('YYYY - MM - DD')}
+                        nextMonth={this.nextMonth}
                     />
                     <Calendar />
                 </div>
