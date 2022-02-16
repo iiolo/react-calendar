@@ -20,7 +20,7 @@
     flex-grow: 1;
     background-color: rgb(127, 184, 127);
 }
-/* header */
+/* calendar header */
 .header-container {
     flex-basis: 50px;
     background-color: rgb(224, 215, 202);
@@ -69,4 +69,21 @@
 .header-buttons li {
     float: left;
     font-size: 90px;
+}
+
+/* todo calendar header */
+.todoHeader-container {
+    flex-basis: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.todoHeader {
+    box-sizing: border-box;
+    padding-left: 25px;
+}
+
+.todoHeader-today {
+    box-sizing: border-box;
+    padding-right: 25px;
 }
