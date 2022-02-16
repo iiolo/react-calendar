@@ -25,13 +25,13 @@
 
 /* calendar-header */
 
-.calendar-week-header {
+.calendar-date-header {
     display: flex;
     height: 30px;
     background-color: green;
 }
 
-.calendar-week-component {
+.calendar-date-component {
     width: 14.2857143%;
     text-align: center;
     box-sizing: border-box;
@@ -41,20 +41,20 @@
     line-height: 25px;
 }
 
-.calendar-week-component:nth-child(odd) {
+.calendar-date-component:nth-child(odd) {
     border-left: none;
     border-right: none;
 }
 
-.week-weekday {
+.date-weekday {
     color: rgba(255, 255, 255, 0.603);
 }
 
-.week-sun {
+.date-sun {
     color: tomato;
 }
 
-.week-sat {
+.date-sat {
     color: skyblue;
 }
 

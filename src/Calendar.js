@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class WeekHeader extends Component {
+class DateHeader extends Component {
     dateToArray = (dates) => {
         if (Array.isArray(dates)) {
             return dates;
@@ -20,13 +20,13 @@ class WeekHeader extends Component {
 
             return dateArray.map((date, index) => {
                 const className = () => {
-                    let className = 'calendar-week-component';
+                    let className = 'calendar-date-component';
                     if (index === 0) {
-                        return className + ' week-sun';
+                        return className + ' date-sun';
                     } else if (index === 6) {
-                        return className + ' week-sat';
+                        return className + ' date-sat';.
                     } else {
-                        return className + ' week-weekday';
+                        return className + ' date-weekday';
                     }
                 };
                 return (
@@ -42,7 +42,7 @@ class WeekHeader extends Component {
 
     render() {
         return (
-            <div className="calendar-week-header">
+            <div className="calendar-date-header">
                 {this.mapArrayToDate(this.dateToArray(this.props.dates))}
             </div>
         );
@@ -53,7 +53,7 @@ class Calendar extends Component {
     render() {
         return (
             <div className="calendar-container">
-                <WeekHeader />
+                <DateHeader />
             </div>
         );
     }
