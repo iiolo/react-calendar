@@ -22,13 +22,13 @@ class App extends Component {
             <div className="layout">
                 <div className="todo-container">
                     <TodoHeader
-                        today={this.state.today.format('YYYY - MM - DD')}
+                        today={this.state.today.format('YYYY / MM / DD')}
                     />
                 </div>
                 <div className="app-container">
                     <Header
                         YearMonth={this.state.YearMonth.format('MMMM YYYY')}
-                        today={this.state.today.format('YYYY - MM - DD')}
+                        today={this.state.today.format('YYYY / MM / DD')}
                         nextMonth={this.nextMonth}
                     />
                     <Calendar />
