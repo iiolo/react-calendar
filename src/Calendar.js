@@ -7,7 +7,7 @@ class DateHeader extends Component {
         } else if (typeof dates === 'string') {
             return dates.split(',');
         } else {
-            return ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
+            return ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
         }
     };
 
