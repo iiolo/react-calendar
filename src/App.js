@@ -1,25 +1,40 @@
-import logo from './logo.svg';
 import './App.css';
+import Calendar from './Calendar';
+import Header from './Header';
+import TodoHeader from './TodoHeader';
+import moment from 'moment';
+import React, { Component } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+    state = {
+        YearMonth: moment(),
+        today: moment(),
+    };
+
+    nextMonth = (month) => {
+        this.setState({
+            YearMonth: this.state.YearMonth.add(month, 'M'),
+        });
+    };
+
+    render() {
+        return (
+            <div className="layout">
+                <div className="todo-container">
+                    <TodoHeader
+                        today={this.state.today.format('YYYY / MM / DD')}
+                    />
+                </div>
+                <div className="app-container">
+                    <Header
+                        YearMonth={this.state.YearMonth.format('MMMM YYYY')}
+                        nextMonth={this.nextMonth}
+                    />
+                    <Calendar YM={this.state.YearMonth.format('YYYY/MM/DD')} />
+                </div>
+            </div>
+        );
+    }
 }
 
 export default App;
