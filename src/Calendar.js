@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import moment from 'moment';
-class DateHeader extends Component {
-    dateToArray = (dates) => {
+function DateHeader(props) {
+    const dateToArray = (dates) => {
         if (Array.isArray(dates)) {
             return dates;
         } else if (typeof dates === 'string') {
@@ -11,7 +11,7 @@ class DateHeader extends Component {
         }
     };
 
-    mapArrayToDate = (dateArray) => {
+    const mapArrayToDate = (dateArray) => {
         try {
             if (dateArray.length !== 7) {
                 console.log(new Error('dates props must be had 7 date'));
@@ -40,19 +40,15 @@ class DateHeader extends Component {
         }
     };
 
-    render() {
-        return (
-            <div className="calendar-date-header">
-                {this.mapArrayToDate(this.dateToArray(this.props.dates))}
-            </div>
-        );
-    }
+    return (
+        <div className="calendar-date-header">
+            {mapArrayToDate(dateToArray(props.dates))}
+        </div>
+    );
 }
 
-class Week extends Component {
-    state = {};
-
-    Days = (firstDayFormat) => {
+function Week(props) {
+    const Days = (firstDayFormat) => {
         const _days = [];
 
         for (let i = 0; i < 7; i++) {
@@ -67,7 +63,7 @@ class Week extends Component {
         return _days;
     };
 
-    mapDaysToComponents = (Days, calendarMonthYear, fn = () => {}) => {
+    const mapDaysToComponents = (Days, calendarMonthYear, fn = () => {}) => {
         const thisMonth = moment(calendarMonthYear);
         return Days.map((dayInfo, i) => {
             let className = 'date-weekday-label';
@@ -87,33 +83,28 @@ class Week extends Component {
                     <label className="calendar-day-label">
                         {dayInfo.getDay}
                     </label>
-
-                    {/* <label className="RCA-calendar-day">{dayInfo.getDay}</label> */}
                 </div>
             );
         });
     };
 
-    render() {
-        return (
-            <div className="calendar-week">
-                {this.mapDaysToComponents(
-                    this.Days(this.props.firstDayOfThisWeekformat),
-                    this.props.ymOfThisCalendar
-                )}
-            </div>
-        );
-    }
+    return (
+        <div className="calendar-week">
+            {mapDaysToComponents(
+                Days(props.firstDayOfThisWeekformat),
+                props.ymOfThisCalendar
+            )}
+        </div>
+    );
 }
-class Calendar extends Component {
-    Weeks = (monthYear) => {
+function Calendar(props) {
+    const Weeks = (monthYear) => {
         const firstDayOfMonth = moment(monthYear).startOf('month');
         const firstDateOfMonth = firstDayOfMonth.get('d');
 
         const firstDayOfWeek = firstDayOfMonth
             .clone()
             .add('d', -firstDateOfMonth);
-        // const lastDayOfThisCalendar = dayOfThisCalendar.clone().add('d', 6 * 7);
 
         const _Weeks = [];
 
@@ -131,14 +122,13 @@ class Calendar extends Component {
         }
         return _Weeks;
     };
-    render() {
-        return (
-            <div className="calendar-container">
-                <DateHeader />
-                {this.Weeks(this.props.YM)}
-            </div>
-        );
-    }
+
+    return (
+        <div className="calendar-container">
+            <DateHeader />
+            {Weeks(props.YM)}
+        </div>
+    );
 }
 
 export default Calendar;
